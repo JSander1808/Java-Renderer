@@ -46,6 +46,8 @@ public class Draw extends JPanel implements Runnable{
         plate.setFocal(1000);
         plate.render();
 
+
+
         try {
             Thread.sleep(sleepIndex);
         } catch (InterruptedException e) {
