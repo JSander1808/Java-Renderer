@@ -50,4 +50,36 @@ public class CreateObject {
             }
         }
     }
+
+    public void setFocal(int focal) {
+        this.focal = focal;
+    }
+
+    public void setGlobalPosition(Point3D globalPosition) {
+        this.globalPosition = globalPosition;
+    }
+
+    public void setPoint3Ds(Point3D[][] point3Ds) {
+        this.point3Ds = point3Ds;
+    }
+
+    public Color[] getColors() {
+        return colors;
+    }
+
+    public Graphics getG() {
+        return g;
+    }
+
+    public int getFocal() {
+        return focal;
+    }
+
+    public Point3D getGlobalPosition() {
+        return globalPosition;
+    }
+
+    public Point3D[][] getPoint3Ds() {
+        return point3Ds;
+    }
 }

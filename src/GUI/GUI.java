@@ -17,7 +17,7 @@ public class GUI{
         frame = new JFrame("3D - Renderer");
         frame.setSize(screenwidth,screenheight);
         frame.setLocationRelativeTo(null);
-        frame.setResizable(true);
+        frame.setResizable(false);
         frame.setLayout(null);
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 

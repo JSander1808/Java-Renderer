@@ -11,27 +11,16 @@ public class DrawPolygon {
             double y = (globalPosition.getY()+point3Ds[i].getY())-GUI.screenmiddle;
             double z = (globalPosition.getZ()+point3Ds[i].getZ())-GUI.screenmiddle;
 
-            double ScreenX;
-            if(x>GUI.screenmiddle){
-                double F = focal;
-                double Fx = z;
-                ScreenX = (F*x)/Fx;
-            }else{
-                double F = focal;
-                double Fx = z;
-                ScreenX = -(F*x)/Fx;
-            }
+            double F = focal;
+            double Fx = z;
+            double Fy = z;
 
             double ScreenY;
-            if(y>GUI.screenmiddle){
-                double F = focal;
-                double Fy = z;
-                ScreenY = (F*y)/Fy;
-            }else{
-                double F = focal;
-                double Fy = z;
-                ScreenY = -(F*y)/Fy;
-            }
+            double ScreenX;
+
+            ScreenX = -(F*x)/Fx;
+            ScreenY = -(F*y)/Fy;
+
             points[i] = new Point((int) (ScreenX+GUI.screenmiddle), (int) (ScreenY+GUI.screenmiddle));
         }
 
@@ -45,6 +34,5 @@ public class DrawPolygon {
             g.setColor(color);
         }
         g.drawPolygon(poly);
-        System.out.println(globalPosition.getX()+" "+ globalPosition.getY()+" "+ globalPosition.getZ());
     }
 }

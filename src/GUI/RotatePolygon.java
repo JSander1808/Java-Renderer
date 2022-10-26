@@ -31,8 +31,6 @@ public class RotatePolygon {
                 newPoint[i] = new Point3D(xr,yr,z);
             }
             point3Ds[i] = newPoint[i];
-            System.out.println(point3Ds[i].getX()+" "+point3Ds[i].getY()+" "+point3Ds[i].getZ());
-            System.out.println(newPoint[i].getX()+" "+newPoint[i].getY()+" "+newPoint[i].getZ());
         }
     }
 }

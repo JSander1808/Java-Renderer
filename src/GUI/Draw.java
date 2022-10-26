@@ -20,8 +20,8 @@ public class Draw extends JPanel implements Runnable{
     public Point3D[] rightsite1 = new Point3D[]{new Point3D(50,-50,50),new Point3D(50,-50,-50),new Point3D(50,50,-50),new Point3D(50,50,50)};
     public Point3D[] top1 = new Point3D[]{new Point3D(-50,-50,50),new Point3D(-50,-50,-50),new Point3D(50,-50,-50),new Point3D(50,-50,50)};
     public Point3D[] back1 = new Point3D[]{new Point3D(-50,-50,-50),new Point3D(50,-50,-50),new Point3D(50,50,-50),new Point3D(-50,50,-50)};
-    public CreateObject plate = new CreateObject(1000,new Point3D(400,400,100),new Point3D[][]{front,back,leftsite,bottom,rightsite,top});
-    public CreateObject cube = new CreateObject(150,new Point3D(  300,400,00),new Point3D[][]{front1,back1,leftsite1,rightsite1,bottom1,top1});
+    public CreateObject plate = new CreateObject(500,new Point3D(250,400,00),new Point3D[][]{front,back,leftsite,bottom,rightsite,top});
+    public CreateObject cube = new CreateObject(500,new Point3D(  550,400,00),new Point3D[][]{front1,back1,leftsite1,rightsite1,bottom1,top1});
     public boolean running;
     private Thread thread;
     private int sleepIndex = 16;
@@ -29,28 +29,26 @@ public class Draw extends JPanel implements Runnable{
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-
-        GUI.screenwidth=Toolkit.getDefaultToolkit().getScreenSize().width;
-        GUI.screenheight=Toolkit.getDefaultToolkit().getScreenSize().height;
-
         g.setColor(Color.black);
-        g.fillRect(0,0,GUI.screenwidth,GUI.screenheight);
+        g.fillRect(0,0,GUI.screenwidth, GUI.screenheight);
 
-        plate.setGraphics(g);
+
         cube.setGraphics(g);
-        cube.rotate(0,1,0);
-        plate.rotate(0,1,0);
-        plate.translate(0.01,0,0);
-        plate.translate(0,0,-0.05);
-        plate.setColors(new Color[]{Color.red,Color.blue,Color.green,Color.orange,Color.yellow,Color.pink});
+        plate.setGraphics(g);
+        cube.rotate(1,0,0);
+        cube.rotate(0,0,1);
+        plate.rotate(1,0,0);
+        plate.rotate(0,0,1);
+
+
+        cube.render();
+        plate.render();
+
         try {
             Thread.sleep(sleepIndex);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
-        cube.render();
-        plate.render();
-
         repaint();
         start();
     }
@@ -86,7 +84,7 @@ public class Draw extends JPanel implements Runnable{
 
             if(System.currentTimeMillis() - timer > 1000) {
                 timer += 1000;
-                GUI.frame.setTitle("3D - Renderer        FPS:"+frames);
+                GUI.frame.setTitle("3D - Renderer        FPS:"+frames+" / "+1000/sleepIndex);
                 updates = 0;
                 frames = 0;
             }
