@@ -32,17 +32,11 @@ public class Draw extends JPanel implements Runnable{
         g.setColor(Color.black);
         g.fillRect(0,0,GUI.screenwidth, GUI.screenheight);
 
-
-        cube.setGraphics(g);
-        plate.setGraphics(g);
-        cube.rotate(1,0,0);
-        cube.rotate(0,0,1);
-        plate.rotate(1,0,0);
-        plate.rotate(0,0,1);
-
-
-        cube.render();
-        plate.render();
+        /*
+        <object>.render();  =   Rendert final das object und zeigt es an;
+        <object>.rotate(0,0,0);   =   Rotiert ein Object um die angegebene Achse mit den Angegeben Grad/tick
+        <object>.translate(0,0,0)   =   Bewegt des Object auch der angegeben Achse mit der angegeben Reichweite/tick;
+         */
 
         try {
             Thread.sleep(sleepIndex);
