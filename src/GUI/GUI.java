@@ -2,22 +2,27 @@ package GUI;
 
 import javax.swing.*;
 
-public class GUI {
+import java.awt.*;
 
-    public static final int SCREENWIDTH = 800;
-    public static final int SCREENHEIGHT = 800;
-    public static final int SCREENMIDDLE = SCREENWIDTH/4+SCREENHEIGHT/4;
+import static jdk.jfr.internal.consumer.EventLog.stop;
+
+public class GUI{
+
+    public static int screenwidth = 800;
+    public static int screenheight = 800;
+    public static int screenmiddle = screenwidth/4+screenheight/4;
+    public static JFrame frame;
 
     public GUI(){
-        JFrame frame = new JFrame("3D - Renderer");
-        frame.setSize(SCREENWIDTH,SCREENHEIGHT);
+        frame = new JFrame("3D - Renderer");
+        frame.setSize(screenwidth,screenheight);
         frame.setLocationRelativeTo(null);
-        frame.setResizable(false);
+        frame.setResizable(true);
         frame.setLayout(null);
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
         JPanel draw = new Draw();
-        draw.setBounds(0,0,GUI.SCREENWIDTH,GUI.SCREENHEIGHT);
+        draw.setBounds(0,0,GUI.screenwidth,GUI.screenheight);
 
 
         frame.add(draw);
