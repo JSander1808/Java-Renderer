@@ -20,8 +20,10 @@ public class Draw extends JPanel implements Runnable{
     public Point3D[] rightsite1 = new Point3D[]{new Point3D(50,-50,50),new Point3D(50,-50,-50),new Point3D(50,50,-50),new Point3D(50,50,50)};
     public Point3D[] top1 = new Point3D[]{new Point3D(-50,-50,50),new Point3D(-50,-50,-50),new Point3D(50,-50,-50),new Point3D(50,-50,50)};
     public Point3D[] back1 = new Point3D[]{new Point3D(-50,-50,-50),new Point3D(50,-50,-50),new Point3D(50,50,-50),new Point3D(-50,50,-50)};
-    public CreateObject plate = new CreateObject(500,new Point3D(400,400,00),new Point3D[][]{front,back,leftsite,bottom,rightsite,top});
-    public CreateObject cube = new CreateObject(500,new Point3D(  550,400,00),new Point3D[][]{front1,back1,leftsite1,rightsite1,bottom1,top1});
+    public Object plateObject = new Object(new Point3D(550,400,100),new Point3D[][]{front,leftsite,bottom,rightsite,top,back});
+    public Object cubeObject = new Object(new Point3D(250,400,100),new Point3D[][]{front1,leftsite1,bottom1,rightsite1,top1,back1});
+    public CreateObject plate = new CreateObject(300,plateObject);
+    public CreateObject cube = new CreateObject(300,cubeObject);
     public boolean running;
     private Thread thread;
     private int sleepIndex = 16;
@@ -41,10 +43,13 @@ public class Draw extends JPanel implements Runnable{
          */
 
         plate.setGraphics(g);
+        cube.setGraphics(g);
+        cube.rotate(0,0,0);
         plate.rotate(1,0,0);
         plate.rotate(0,0,1);
-        plate.setFocal(1000);
+        cube.merge(plateObject);
         plate.render();
+        cube.render();
 
 
 
